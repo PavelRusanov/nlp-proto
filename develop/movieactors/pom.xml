@@ -7,10 +7,10 @@
 	<packaging>pom</packaging>
 	<name>movieactors</name>
 	<modules>
-		<module>movieactors.ear</module>
-		<module>movieactors.ejb</module>
-		<module>movieactors.web</module>
-		<module>movieactors.model</module>
+		<module>../movieactors.ear</module>
+		<module>../movieactors.ejb</module>
+		<module>../movieactors.web</module>
+		<module>../movieactors.model</module>
 	</modules>
 	<repositories>
 		<repository>
