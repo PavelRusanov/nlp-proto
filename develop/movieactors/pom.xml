@@ -11,6 +11,7 @@
 		<module>../movieactors.ejb</module>
 		<module>../movieactors.web</module>
 		<module>../movieactors.model</module>
+		<module>../movieactors.annotators</module>
 	</modules>
 	<repositories>
 		<repository>
