@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ru.intrface</groupId>
+		<artifactId>movieactors</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>movieactors.ear</artifactId>
+	<packaging>ear</packaging>
+
+	<name>movieactors.ear</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.codehaus.cargo</groupId> <artifactId>cargo-maven2-plugin</artifactId> 
+				<version>1.0.3</version> <configuration> <container> <containerId>glassfish3x</containerId> 
+				<type>installed</type> <home>/home/user/soft/glassfish3</home> </container> 
+				<configuration> <type>standalone</type> <home>/home/user/soft/glassfish3</home> 
+				<properties> <cargo.hostname>localhost</cargo.hostname> <cargo.glassfish.domain.name>mvactors_dev</cargo.glassfish.domain.name> 
+				<cargo.remote.username>admin</cargo.remote.username> <cargo.remote.password>admin</cargo.remote.password> 
+				<cargo.servlet.port>8080</cargo.servlet.port> <cargo.glassfish.domain.debug>false</cargo.glassfish.domain.debug> 
+				</properties> </configuration> <deployer> <type>installed</type> <deployables> 
+				<deployable> <groupId>${groupId}</groupId> <artifactId>${artifactId}</artifactId> 
+				<type>ear</type> </deployable> </deployables> </deployer> </configuration> 
+				</plugin> -->
+			<plugin>
+				<groupId>org.glassfish.maven.plugin</groupId>
+				<artifactId>maven-glassfish-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<glassfishDirectory>/home/user/soft/glassfish3/glassfish</glassfishDirectory>
+					<user>admin</user>
+					<adminPassword>admin</adminPassword>
+					<autoCreate>true</autoCreate>
+					<debug>true</debug>
+					<echo>false</echo>
+					<terse>true</terse>
+					<domain>
+						<name>mvactors_dev</name>
+						<adminPort>4848</adminPort>
+						<httpPort>8080</httpPort>
+						<reuse>false</reuse>
+					</domain>
+					<components>
+						<component>
+							<name>${project.artifactId}</name>
+							<artifact>
+								${project.build.directory}/${project.build.finalName}.ear
+							</artifact>
+						</component>
+					</components>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-ear-plugin
+										</artifactId>
+										<versionRange>
+											[2.6,)
+										</versionRange>
+										<goals>
+											<goal>
+												generate-application-xml
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>ru.intrface</groupId>
+			<artifactId>movieactors.ejb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>ru.intrface</groupId>
+			<artifactId>movieactors.web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+</project>
