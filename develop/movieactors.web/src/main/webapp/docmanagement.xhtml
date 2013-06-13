@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Litmus-QA Prototype (v 0.0.1). Document management</h1>
+	<p:layout id="docMgmtLayout">
+		<p:layoutUnit position="west" size="20%" id="docMgmtMenuUnit">
+			<h:panelGrid columns="1">
+				<p:commandButton value="Загрузка данных"
+					update="docUploaderFrm,docTableFrm"
+					action="#{documentManager.showLoadPage}" />
+				<p:commandButton value="Данные системы"
+					update="docUploaderFrm,docTableFrm"
+					action="#{documentManager.showDocTable}" />
+			</h:panelGrid>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center" size="80%" id="docMgmtContentUnit">
+			<h:form id="docUploaderFrm" enctype="multipart/form-data">
+				<h:panelGrid columns="1"
+					rendered="#{documentManager.renderLoadPage}">
+					<h:outputText
+						value="Выберете файл и укажите тип коллекции, к которому он относится" />
+					<p:selectOneMenu id="docCollectMenu">
+						<f:selectItem itemLabel="Актеры" />
+						<f:selectItem itemLabel="Фильмы" />
+					</p:selectOneMenu>
+					<p:fileUpload value="#{documentManager.docFile}"
+						fileUploadListener="#{documentManager.handleFileUpload}" />
+				</h:panelGrid>
+			</h:form>
+			<h:form id="docTableFrm">
+				<p:dataTable rendered="#{documentManager.renderDocTable}">
+					<p:column headerText="Имя">
+					</p:column>
+					<p:column headerText="Тип коллекции">
+					</p:column>
+					<p:column headerText="Тип файла">
+					</p:column>
+					<p:column headerText="Статус">
+					</p:column>
+					<p:column headerText="Действия">
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>
