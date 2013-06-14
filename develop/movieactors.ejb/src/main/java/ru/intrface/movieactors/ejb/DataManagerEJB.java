@@ -17,7 +17,7 @@ import ru.intrface.movieactors.ejb.exception.DataManagerException;
 /**
  * EJB-бин работы с базой данных
  * 
- * @author pchurbanov, rusanov
+ * @author rusanov
  * 
  */
 @Stateless

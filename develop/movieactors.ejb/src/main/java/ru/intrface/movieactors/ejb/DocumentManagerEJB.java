@@ -2,8 +2,12 @@ package ru.intrface.movieactors.ejb;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import ru.intrface.movieactors.annotators.BasicAEExHelperFactory;
+import ru.intrface.movieactors.annotators.BasicAEExecuteHelper;
+import ru.intrface.movieactors.ejb.exception.DataManagerException;
 import ru.intrface.movieactors.model.SourceDocument;
 
 /**
@@ -13,7 +17,10 @@ import ru.intrface.movieactors.model.SourceDocument;
  */
 @Stateless
 public class DocumentManagerEJB {
+	@EJB
+	DataManagerEJB dm;
 	public void addDocument(){
+		
 		//TODO: реализовать метод
 		throw new UnsupportedOperationException();
 	}
@@ -62,9 +69,27 @@ public class DocumentManagerEJB {
 	/**
 	 * Метод, вызываемый по таймеру для обработки документов, поступишвних
 	 * в систему, но не прошедших через UIMA обработчик
+	 * @throws DataManagerException 
 	 */
-	public void processNewDocuments(){
+	public void processNewDocuments() throws DataManagerException{
+		BasicAEExHelperFactory factory = new BasicAEExHelperFactory();
+		BasicAEExecuteHelper aeHelper = factory.getAEHelper();
+		String qry = 
+				"SELECT sd " +
+				"FROM " +
+				"	SourceDocument " +
+				"WHERE " +
+				"	sd.processed = false";
+		List<SourceDocument> documents = dm.execQuery(SourceDocument.class, qry);
+		
+		for (SourceDocument doc : documents){
+			
+		}
 		//TODO: реализовать метод
+		
+		//Получить новые документы
+		
+		//запустить аннотаторы
 		throw new UnsupportedOperationException();
 	}
 	

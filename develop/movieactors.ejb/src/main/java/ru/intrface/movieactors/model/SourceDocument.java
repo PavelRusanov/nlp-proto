@@ -11,6 +11,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "source_document")
 public class SourceDocument extends SystemObject{
+	
+	/**
+	 * URI документа
+	 */
+	private String uri;
+	/**
+	 * Наименование документа
+	 */
+	private String name;
+	
+	/**
+	 * документ обработан?
+	 */
+	private boolean processed;
 	/**
 	 * 
 	 */
@@ -27,14 +41,16 @@ public class SourceDocument extends SystemObject{
 	public void setName(String name) {
 		this.name = name;
 	}
-	/**
-	 * URI докумнта
-	 */
-	private String uri;
-	/**
-	 * Наименование документа
-	 */
-	private String name;
+
+	public boolean isProcessed() {
+		return processed;
+	}
+	public void setProcessed(boolean processed) {
+		this.processed = processed;
+	}
+	
+	
+	
 	
 
 }
