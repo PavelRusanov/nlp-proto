@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
+import ru.intrface.movieactors.model.SourceDocument;
+
 @ManagedBean(name = "documentManager")
 @ViewScoped
 public class DocumentManagerBean {
@@ -68,6 +70,8 @@ public class DocumentManagerBean {
 		UploadedFile file = event.getFile();
 		String name = file.getFileName();
 		logger.info("File with name "+name+" uploaded to system");
+		
+
 		
 	}
 }

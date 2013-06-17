@@ -22,6 +22,10 @@ public class SourceDocument extends SystemObject{
 	private String name;
 	
 	/**
+	 * хэш от имени файла
+	 */
+	private String hashName;
+	/**
 	 * документ обработан?
 	 */
 	private boolean processed;
@@ -47,6 +51,12 @@ public class SourceDocument extends SystemObject{
 	}
 	public void setProcessed(boolean processed) {
 		this.processed = processed;
+	}
+	public String getHashName() {
+		return hashName;
+	}
+	public void setHashName(String hashName) {
+		this.hashName = hashName;
 	}
 	
 	

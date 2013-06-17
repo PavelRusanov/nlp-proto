@@ -19,13 +19,13 @@ import org.apache.uima.util.XMLInputSource;
  * @author user
  *
  */
-public abstract class AEExecuteHelper {
+public abstract class AEExecuteHelper implements IAeExecuteHelper{
 	public static final String ACTOR_CHAR_ANNOT_URI = "file:///home/user/work/"
 			+ "uima/wspaces/wspace1/movieactors.annotators/desc/ActorCharacterAnnotatorDescriptor.xml";
 	
 	private static final Logger logger = Logger.getLogger(AEExecuteHelper.class
 			.getName());
-
+	
 	private AnalysisEngine ae;
 	
 	public final void produceAnalysisEngine(String aeDescriptorURI)
@@ -72,14 +72,12 @@ public abstract class AEExecuteHelper {
 		CAS cas = ae.newCAS();
 		String documentText = FileUtils.file2String(docFile);
 		cas.setDocumentText(documentText);
-		System.out.println(cas.getDocumentLanguage());
 
 		ae.process(cas);
 		annotationProcessing(cas);
 
 		cas.reset();
-
-		ae.destroy();
+//		ae.destroy();
 		logger.info("File has been analysed");
 	}
 
