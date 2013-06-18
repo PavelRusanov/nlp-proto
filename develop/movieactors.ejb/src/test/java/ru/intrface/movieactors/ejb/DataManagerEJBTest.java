@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -42,10 +41,10 @@ public class DataManagerEJBTest extends TestCase {
 		DataManagerEJB dataManager = (DataManagerEJB) getBean(DataManagerEJB.class);
 		assertNotNull("Testing embedded container", dataManager);
 //		
-		dataManager.save(actor);
+		dataManager.saveOrUpdate(actor);
 		assertNotNull("Actor id", actor.getId());
 		
-		dataManager.delete(Actor.class, actor.getId());
+//		dataManager.delete(Actor.class, actor.getId());
 		
 		
 		
@@ -60,11 +59,7 @@ public class DataManagerEJBTest extends TestCase {
 	}
 	
 	public Object getBean(Class<?> ejbClass) throws NamingException{
-//		String appName = (String) container.getContext().lookup("java:app/AppName");
 		return container.getContext().lookup("java:global/movieactors.ejb/"+ejbClass.getSimpleName());
-//		return container.getContext().
-//				lookup("java:global/"+appName+"/ru.intrface.movieactors.ejb/"
-//				+ejbClass.getSimpleName()+"!"+ejbClass.getName());
 	}
 	
 	

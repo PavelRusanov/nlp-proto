@@ -1,5 +1,6 @@
 package ru.intrface.movieactors.web;
 
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -8,7 +9,6 @@ import org.apache.log4j.Logger;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
-import ru.intrface.movieactors.model.SourceDocument;
 
 @ManagedBean(name = "documentManager")
 @ViewScoped
@@ -69,9 +69,12 @@ public class DocumentManagerBean {
 		logger.info("File upload started");
 		UploadedFile file = event.getFile();
 		String name = file.getFileName();
-		logger.info("File with name "+name+" uploaded to system");
-		
-
-		
+//		try {
+//			docManager.addDocument(name, file.getInputstream());
+//			logger.info("File with name "+name+" uploaded to system");
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 }

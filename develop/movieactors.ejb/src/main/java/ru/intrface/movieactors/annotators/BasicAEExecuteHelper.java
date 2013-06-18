@@ -17,8 +17,7 @@ import ru.intrface.moviesactors.util.IAeExecuteHelper;
  */
 public class BasicAEExecuteHelper  extends AEExecuteHelper implements IAeExecuteHelper{
 		
-	private static final Logger logger = Logger.getLogger(BasicAEExecuteHelper.class
-			.getName());
+	private static final Logger logger = Logger.getLogger(BasicAEExecuteHelper.class);
 	private DataManagerEJB dm;
 	
 	public void init() throws NamingException{
