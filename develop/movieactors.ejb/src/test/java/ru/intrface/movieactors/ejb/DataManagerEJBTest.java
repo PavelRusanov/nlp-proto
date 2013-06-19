@@ -33,6 +33,7 @@ public class DataManagerEJBTest extends TestCase {
 //		DataSource datasource = (DataSource) container.getContext().lookup("jdbc/movieactorsderby"); //You can lookup the datasource too, to confirm that your setup is successful.
 		
 	}
+	
 	@Test
 	public void testSave() throws Exception{
 		logger.info("Test saving entities in DB");
@@ -40,14 +41,11 @@ public class DataManagerEJBTest extends TestCase {
 		actor.setName("Dustin Hoffman");
 		DataManagerEJB dataManager = (DataManagerEJB) getBean(DataManagerEJB.class);
 		assertNotNull("Testing embedded container", dataManager);
-//		
-		dataManager.saveOrUpdate(actor);
+		
+		dataManager.save(actor);
 		assertNotNull("Actor id", actor.getId());
 		
-//		dataManager.delete(Actor.class, actor.getId());
-		
-		
-		
+		dataManager.delete(Actor.class, actor.getId());	
 	}
 
 	@Override

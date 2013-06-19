@@ -55,7 +55,7 @@
       <nameValuePair>
         <name>ru.intrface.OpenNlpModelsDir</name>
         <value>
-          <string>/home/user/work/uima/wspaces/wspace1/movieactors.annotators/opennlpmodels</string>
+          <string>/home/user/git/nlp-proto/develop/movieactors.annotators/opennlpmodels</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

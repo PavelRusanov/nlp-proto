@@ -33,16 +33,17 @@ import ru.intrface.moviesactors.util.AEExecuteHelper;
  */
 @Stateless
 public class DocumentManagerEJB {
-	private static final Logger logger = Logger.getLogger(DataManagerEJB.class);
+	private static final Logger logger = Logger.getLogger(DocumentManagerEJB.class);
 	
 	@EJB
 	DataManagerEJB dm;
-	private String docsDir;
+	
+	private String docsDir="/home/user/movieactors_upload";
 
 	@PostConstruct
 	public void init() {
-		docsDir = (String) PropertiesUtil.INSTANCE.getProps()
-				.get("documentDir");
+//		docsDir = (String) PropertiesUtil.INSTANCE.getProps()
+//				.get("documentDir");
 	}
 
 	public void addDocument(String fileName, InputStream is) {
@@ -150,46 +151,53 @@ public class DocumentManagerEJB {
 	 */
 	public void processNewDocuments() throws DataManagerException,
 			InvalidXMLException, ResourceInitializationException, IOException {
+		logger.info("Processing new documents");
+		
+		logger.info("Load UIMA annotators");
 		// инициализаия аннтотаторов
 		BasicAEExHelperFactory factory = new BasicAEExHelperFactory();
 		BasicAEExecuteHelper aeHelper = factory.getAEHelper();
 		aeHelper.produceAnalysisEngine(AEExecuteHelper.ACTOR_CHAR_ANNOT_URI);
 
+		
+		
 		String qry = "SELECT sd " + "FROM " + "	SourceDocument " + "WHERE "
 				+ "	sd.processed = false";
 		List<SourceDocument> documents = dm
 				.execQuery(SourceDocument.class, qry);
-
-		for (SourceDocument doc : documents) {
-			File docFile = new File(doc.getUri());
-			try {
-				aeHelper.analyseDocument(docFile);
-			} catch (AnalysisEngineProcessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ResourceInitializationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		logger.info("There are "+documents.size()+ "new documents in system");
+		try {
+			for (SourceDocument doc : documents) {
+				File docFile = new File(doc.getUri());
+				
+					aeHelper.analyseDocument(docFile);
+				
 			}
+		} catch (AnalysisEngineProcessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ResourceInitializationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			aeHelper.destroyAE();
 		}
-		aeHelper.destroyAE();
-		// TODO: реализовать метод
-
-		// Получить новые документы
-
-		// запустить аннотаторы
-		throw new UnsupportedOperationException();
+		
+		logger.info("All documents has been processed");
 	}
 
 	/**
 	 * Принудительный вызов обработчика документов
+	 * @throws IOException 
+	 * @throws DataManagerException 
+	 * @throws ResourceInitializationException 
+	 * @throws InvalidXMLException 
 	 */
-	public void forceProcessNewDocuments() {
-		// TODO: реализовать метод
-		throw new UnsupportedOperationException();
+	public void forceProcessNewDocuments() throws InvalidXMLException, ResourceInitializationException, DataManagerException, IOException {
+		processNewDocuments();
 	}
 
 }

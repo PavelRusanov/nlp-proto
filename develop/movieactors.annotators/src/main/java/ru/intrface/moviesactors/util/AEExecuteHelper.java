@@ -20,17 +20,18 @@ import org.apache.uima.util.XMLInputSource;
  *
  */
 public abstract class AEExecuteHelper implements IAeExecuteHelper{
-	public static final String ACTOR_CHAR_ANNOT_URI = "file:///home/user/work/"
-			+ "uima/wspaces/wspace1/movieactors.annotators/desc/ActorCharacterAnnotatorDescriptor.xml";
+	public static final String ACTOR_CHAR_ANNOT_URI = "file:///home/user/git/nlp-proto/develop/movieactors.annotators/desc/ActorCharacterAnnotatorDescriptor.xml";
 	
 	private static final Logger logger = Logger.getLogger(AEExecuteHelper.class
 			.getName());
 	
 	private AnalysisEngine ae;
 	
+	
 	public final void produceAnalysisEngine(String aeDescriptorURI)
 			throws IOException, InvalidXMLException,
 			ResourceInitializationException {
+		logger.info("Producing analysis engine");
 		if(ae==null){
 			XMLInputSource in = new XMLInputSource(aeDescriptorURI);
 	

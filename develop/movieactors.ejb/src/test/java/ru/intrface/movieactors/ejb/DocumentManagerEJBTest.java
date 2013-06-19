@@ -19,13 +19,13 @@ public class DocumentManagerEJBTest extends TestCase {
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();
-		logger.info("creating EJB container");
-		Map<String, Object> props = new HashMap<String, Object>();
-		props.put(EJBContainer.APP_NAME, "movieactors.ejb");
-		props.put("org.glassfish.ejb.embedded.glassfish.installation.root",
-				"./glassfish-install/glassfish");
-		container = EJBContainer.createEJBContainer(props);
-		logger.info("EJB container has been created");
+//		logger.info("creating EJB container");
+//		Map<String, Object> props = new HashMap<String, Object>();
+//		props.put(EJBContainer.APP_NAME, "movieactors.ejb");
+//		props.put("org.glassfish.ejb.embedded.glassfish.installation.root",
+//				"./glassfish-install/glassfish");
+//		container = EJBContainer.createEJBContainer(props);
+//		logger.info("EJB container has been created");
 	}
 
 	@Override

@@ -23,7 +23,7 @@ public class AnnotatorTest {
 		XMLInputSource in;
 		try {
 			in = new XMLInputSource(
-					"file:///home/user/work/uima/wspaces/wspace1/movieactors.annotators/desc/ActorCharacterAnnotatorDescriptor.xml");
+					"file:///home/user/git/nlp-proto/develop/movieactors.annotators/desc/ActorCharacterAnnotatorDescriptor.xml");
 
 			ResourceSpecifier specifier = UIMAFramework.getXMLParser()
 					.parseResourceSpecifier(in);
@@ -31,7 +31,7 @@ public class AnnotatorTest {
 			AnalysisEngine ae = UIMAFramework.produceAnalysisEngine(specifier);
 
 			CAS cas = ae.newCAS();
-			File document = new File("/home/user/work/uima/wspaces/wspace1/movieactors.annotators/testData/shawshankRed.txt");
+			File document = new File("/home/user/git/nlp-proto/develop/movieactors.annotators/testData/shawshankRed.txt");
 			String text = FileUtils.file2String(document);
 			cas.setDocumentText(text);
 			
