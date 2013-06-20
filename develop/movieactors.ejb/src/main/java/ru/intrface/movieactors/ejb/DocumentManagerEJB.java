@@ -161,7 +161,7 @@ public class DocumentManagerEJB {
 
 		
 		
-		String qry = "SELECT sd " + "FROM " + "	SourceDocument " + "WHERE "
+		String qry = "SELECT sd " + "FROM " + "	SourceDocument sd " + "WHERE "
 				+ "	sd.processed = false";
 		List<SourceDocument> documents = dm
 				.execQuery(SourceDocument.class, qry);
@@ -169,8 +169,7 @@ public class DocumentManagerEJB {
 		try {
 			for (SourceDocument doc : documents) {
 				File docFile = new File(doc.getUri());
-				
-					aeHelper.analyseDocument(docFile);
+				aeHelper.analyseDocument(docFile);
 				
 			}
 		} catch (AnalysisEngineProcessException e) {

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="character")
+@Table(name="character_tbl")
 public class Character extends SystemObject {
 
 	/**

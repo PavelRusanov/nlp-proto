@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "character")
+@Table(name = "movie")
 public class Movie extends SystemObject {
 
 	/**

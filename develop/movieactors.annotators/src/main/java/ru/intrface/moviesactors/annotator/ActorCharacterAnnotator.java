@@ -110,28 +110,29 @@ public class ActorCharacterAnnotator extends JCasAnnotator_ImplBase {
 					
 					if(nextName.getStart()==(name.getEnd()+1)){
 						//создаем аннотацию для актера
-						Actor annotation = new Actor(jCas);
-						annotation.setBegin(start
+						Actor actorAnnot = new Actor(jCas);
+						actorAnnot.setBegin(start
 								+ tokSpans[name.getStart()].getStart());
-						annotation.setEnd(start + tokSpans[name.getEnd() - 1].getEnd());	
+						actorAnnot.setEnd(start + tokSpans[name.getEnd() - 1].getEnd());	
 						//получаем имя актера
-						annotation.setName(getEntityText(name.getStart(), name.getEnd(), tokens));
+						actorAnnot.setName(getEntityText(name.getStart(), name.getEnd(), tokens));
 						
-						annotation.addToIndexes(jCas);
+//						annotation.addToIndexes(jCas);
 						
 						//создаем аннотацию для роли актера
 						Character charAnnot = new Character(jCas);
 						charAnnot.setBegin(tokSpans[nextName.getStart()].getStart());
 						charAnnot.setEnd(start + tokSpans[nextName.getEnd() - 1].getEnd());
 						charAnnot.setName(getEntityText(nextName.getStart(), nextName.getEnd(), tokens));
-						charAnnot.addToIndexes(jCas);
+//						charAnnot.addToIndexes(jCas);
 						
 						//аннотация для связок - актер/роль
 						Actor2Character actor2CharacterAnnot = new Actor2Character(jCas);
-						actor2CharacterAnnot.setActor(annotation);
+						actor2CharacterAnnot.setActor(actorAnnot);
 						actor2CharacterAnnot.setCharacter(charAnnot);
-						actor2CharacterAnnot.setBegin(annotation.getBegin());
+						actor2CharacterAnnot.setBegin(actorAnnot.getBegin());
 						actor2CharacterAnnot.setEnd(charAnnot.getEnd());
+						actor2CharacterAnnot.addToIndexes(jCas);
 						
 						System.out.println("Actor: "+ getEntityText(name.getStart(), name.getEnd(), tokens)+
 								" plays "+getEntityText(nextName.getStart(), nextName.getEnd(), tokens));

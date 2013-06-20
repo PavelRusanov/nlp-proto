@@ -15,15 +15,15 @@ import ru.intrface.moviesactors.util.AEExecuteHelper;
 import junit.framework.TestCase;
 
 public class BasicAEExecuteHelperTest extends TestCase {
-	private BasicAEExecuteHelper helper;
+//	private BasicAEExecuteHelper helper;
 	
 	private File testFile;
 	
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		BasicAEExHelperFactory factory = new BasicAEExHelperFactory();
-		helper = factory.getAEHelper();
+//		BasicAEExHelperFactory factory = new BasicAEExHelperFactory();
+//		helper = factory.getAEHelper();
 		
 		testFile = new File("/home/user/git/nlp-proto/develop/movieactors.annotators/testData/shawshankRed.txt");
 
@@ -37,8 +37,8 @@ public class BasicAEExecuteHelperTest extends TestCase {
 
 	@Test
 	public void testAnalyseDocument() throws AnalysisEngineProcessException, ResourceInitializationException, IOException, InvalidXMLException{
-		helper.produceAnalysisEngine(AEExecuteHelper.ACTOR_CHAR_ANNOT_URI);
-		helper.analyseDocument(testFile);
+//		helper.produceAnalysisEngine(AEExecuteHelper.ACTOR_CHAR_ANNOT_URI);
+//		helper.analyseDocument(testFile);
 	}
 
 }

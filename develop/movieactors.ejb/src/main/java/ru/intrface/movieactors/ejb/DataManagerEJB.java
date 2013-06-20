@@ -21,7 +21,7 @@ import ru.intrface.movieactors.ejb.exception.DataManagerException;
  * 
  */
 @Stateless
-public class DataManagerEJB {
+public class DataManagerEJB  {
 	@PersistenceContext(unitName = "movieactors")
 	private EntityManager em;
 	private static final Logger logger = Logger.getLogger(DataManagerEJB.class
