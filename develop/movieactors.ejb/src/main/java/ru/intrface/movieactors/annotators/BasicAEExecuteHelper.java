@@ -37,9 +37,7 @@ public class BasicAEExecuteHelper  extends AEExecuteHelper implements IAeExecute
 		InitialContext ctx = new InitialContext();
 		//XXX: сделать нормальный лукап
 		dm = (DataManagerEJB) ctx.lookup("java:global/movieactors.ear/movieactors.ejb-0.0.1-SNAPSHOT/DataManagerEJB");
-		
 		logger.info("BasicAEExecuteHelper has been initialized");
-		logger.info("data manager"+dm.toString());
 	}
 	
 	@Override
@@ -81,13 +79,6 @@ public class BasicAEExecuteHelper  extends AEExecuteHelper implements IAeExecute
 		movie.setCast(actorsCharacters);
 		
 		try {
-//			for(Actor2Character a2c : movie.getCast()){
-//				Actor actor = a2c.getActor();
-//				dm.save(actor);
-//				
-//				Character ch = a2c.getCharacter();
-//				dm.save(ch);
-//			}
 			dm.save(movie);
 		} catch (DataManagerException e) {
 			// TODO Auto-generated catch block
