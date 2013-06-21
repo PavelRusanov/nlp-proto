@@ -11,6 +11,16 @@ public class Actor extends SystemObject {
 	
 	private String name;
 
+	public Actor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Actor(String name) {
+		super();
+		this.name = name;
+	}
+
 	public String getName() {
 		return name;
 	}

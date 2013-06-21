@@ -23,6 +23,16 @@ public class Movie extends SystemObject {
 	@OneToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "movie_actorchars", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "actor2char_id"))
 	private List<Actor2Character> cast;
+	
+	public Movie() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Movie(String name) {
+		super();
+		this.name = name;
+	}
 
 	public List<Actor2Character> getCast() {
 		return cast;

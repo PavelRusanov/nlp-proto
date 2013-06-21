@@ -45,8 +45,9 @@ public class QuestionAnswerBean {
 
 	public void answerQuestion(){
 		logger.info("Answer the question : "+ questionText);
-		String answer = qaEJB.answerQuestion(qaEJB.parseQuestion(questionText,MovieActorsQuestion.class));
-		questionAnswer = "Answer for question "+questionText + answer;
+	//	String answer = qaEJB.answerQuestion(qaEJB.parseQuestion(questionText,MovieActorsQuestion.class));
+		qaEJB.parseQuestion(questionText,MovieActorsQuestion.class);
+	//	questionAnswer = "Answer for question "+questionText + answer;
 	}
 	
 
