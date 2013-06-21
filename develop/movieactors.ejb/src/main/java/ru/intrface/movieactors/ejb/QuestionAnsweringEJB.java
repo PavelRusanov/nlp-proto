@@ -5,7 +5,10 @@ import javax.ejb.Stateless;
 import org.apache.log4j.Logger;
 
 import ru.intrface.movieactors.model.question.AbstractQuestion;
+import ru.intrface.movieactors.model.question.MovieActorsQuestion;
+import ru.intrface.movieactors.question.IQuestionAnswerer;
 import ru.intrface.movieactors.question.IQuestionParser;
+import ru.intrface.movieactors.question.MovieActorsQuestionAnswerer;
 
 /**
  * Ejb для ответа на вопросы
@@ -35,8 +38,9 @@ public class QuestionAnsweringEJB {
 	 * @param question - вопрос
 	 * @return
 	 */
-	public <T extends AbstractQuestion> String answerQuestion(T question){
-		throw new UnsupportedOperationException();
+	public <T extends AbstractQuestion> String answerQuestion(Class<T> questionClass,T question){
+		IQuestionAnswerer<T> questionAnswerer = findProperlyAnswer(questionClass);
+		return questionAnswerer.answerQuestion(question);
 	}
 
 	/**
@@ -48,5 +52,14 @@ public class QuestionAnsweringEJB {
 	private <T extends AbstractQuestion> IQuestionParser<T> findProperlyParser(Class<?> questionClass){
 		//TODO: 
 		throw new UnsupportedOperationException();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <M extends AbstractQuestion> IQuestionAnswerer<M> findProperlyAnswer(Class<?> questionClass){
+		if(questionClass.equals(MovieActorsQuestion.class)){
+			return (IQuestionAnswerer<M>) new MovieActorsQuestionAnswerer();
+		}
+		return null;
+		
 	}
 }
