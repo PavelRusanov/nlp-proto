@@ -2,6 +2,7 @@ package ru.intrface.movieactors.model.question;
 
 import ru.intrface.movieactors.model.Actor;
 import ru.intrface.movieactors.model.Movie;
+import ru.intrface.movieactors.model.Character;
 
 /**
  * 
