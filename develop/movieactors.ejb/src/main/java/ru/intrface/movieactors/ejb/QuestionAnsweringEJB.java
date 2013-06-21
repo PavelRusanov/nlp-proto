@@ -9,6 +9,7 @@ import ru.intrface.movieactors.model.question.MovieActorsQuestion;
 import ru.intrface.movieactors.question.IQuestionAnswerer;
 import ru.intrface.movieactors.question.IQuestionParser;
 import ru.intrface.movieactors.question.MovieActorsQuestionAnswerer;
+import ru.intrface.movieactors.question.MovieActorsQuestionParser;
 
 /**
  * Ejb для ответа на вопросы
@@ -27,7 +28,7 @@ public class QuestionAnsweringEJB {
 	public <T extends AbstractQuestion> T parseQuestion(String questionStr,
 			Class<T> questionClass){
 		logger.info("Parse question [ type:"+questionClass.getSimpleName()+
-				"question: "+ questionStr +" ]");
+				" question: "+ questionStr +" ]");
 		IQuestionParser<T> parser = findProperlyParser(questionClass);
 		return (T) parser.parseQuestion(questionStr);
 	}
@@ -49,9 +50,10 @@ public class QuestionAnsweringEJB {
 	 * @param questionClass
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	private <T extends AbstractQuestion> IQuestionParser<T> findProperlyParser(Class<?> questionClass){
-		//TODO: 
-		throw new UnsupportedOperationException();
+		return ((IQuestionParser<T>) new MovieActorsQuestionParser());
+		//throw new UnsupportedOperationException();
 	}
 	
 	@SuppressWarnings("unchecked")
