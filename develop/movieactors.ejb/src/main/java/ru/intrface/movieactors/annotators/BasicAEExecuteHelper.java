@@ -35,8 +35,11 @@ public class BasicAEExecuteHelper  extends AEExecuteHelper implements IAeExecute
 	public void init() throws NamingException{
 		logger.info("BasicAEExecuteHelper initializing... inject EJBs");
 		InitialContext ctx = new InitialContext();
-		dm = (DataManagerEJB) ctx.lookup("java:global/movieactors.ejb/DataManagerEJB");
+		//XXX: сделать нормальный лукап
+		dm = (DataManagerEJB) ctx.lookup("java:global/movieactors.ear/movieactors.ejb-0.0.1-SNAPSHOT/DataManagerEJB");
+		
 		logger.info("BasicAEExecuteHelper has been initialized");
+		logger.info("data manager"+dm.toString());
 	}
 	
 	@Override
@@ -55,10 +58,10 @@ public class BasicAEExecuteHelper  extends AEExecuteHelper implements IAeExecute
 				ru.intrface.moviesactors.Actor2Character actor2CharAnnot = (ru.intrface.moviesactors.Actor2Character) annot;
 				
 				Actor actor = new Actor();
-				actor.setName(actor2CharAnnot.getActor().getCoveredText());
+				actor.setName(actor2CharAnnot.getActor().getName());
 				
 				Character character = new Character();
-				character.setName(actor2CharAnnot.getCharacter().getCoveredText());
+				character.setName(actor2CharAnnot.getCharacter().getName());
 				
 				Actor2Character actor2Char = new Actor2Character();
 				actor2Char.setActor(actor);
@@ -78,6 +81,13 @@ public class BasicAEExecuteHelper  extends AEExecuteHelper implements IAeExecute
 		movie.setCast(actorsCharacters);
 		
 		try {
+//			for(Actor2Character a2c : movie.getCast()){
+//				Actor actor = a2c.getActor();
+//				dm.save(actor);
+//				
+//				Character ch = a2c.getCharacter();
+//				dm.save(ch);
+//			}
 			dm.save(movie);
 		} catch (DataManagerException e) {
 			// TODO Auto-generated catch block

@@ -166,6 +166,7 @@ public class DocumentManagerEJB {
 		List<SourceDocument> documents = dm
 				.execQuery(SourceDocument.class, qry);
 		logger.info("There are "+documents.size()+ "new documents in system");
+		logger.info("data manager"+dm.toString());
 		try {
 			for (SourceDocument doc : documents) {
 				File docFile = new File(doc.getUri());
