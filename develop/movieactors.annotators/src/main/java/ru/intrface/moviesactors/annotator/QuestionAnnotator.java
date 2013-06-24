@@ -66,8 +66,8 @@ public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 			QuestionAnnotation questionAnnot) {
 		switch (questionType) {
 		case "ACTOR_AS_CHARACTER_IN_MOVIE":
-			questionAnnot.setRole(matcher.group(2));
-			questionAnnot.setFilm(matcher.group(4));
+			questionAnnot.setRole(matcher.group(3));
+			questionAnnot.setFilm(matcher.group(5));
 			break;
 		case "MOVIE_WHERE_ACTOR_PLAYS_ROLE":
 			if (matcher.group(3).equals("took part"))
