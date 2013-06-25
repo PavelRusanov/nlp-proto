@@ -3,6 +3,7 @@ package ru.intrface.moviesactors.annotator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
@@ -11,8 +12,11 @@ import ru.intrface.moviesactors.QuestionAnnotation;
 
 public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 
+	private static Logger logger = Logger
+			.getLogger(QuestionAnnotation.class);
+	
 	static final Pattern whoQuestionPattern = Pattern
-			.compile("(Who) (played|performed) (\\w+) in the (film|movie|motion picture) (\\w+)*");
+			.compile("(Who) (played|performed) (\\w+)* in the (film|movie|motion picture) (\\w+)*");
 	static final Pattern whereQuestionPattern = Pattern
 			.compile("(Where) did (\\w+)* (played|performed) (role|part) of (\\w+)*");
 	static final Pattern where2QuestionPattern = Pattern
@@ -44,7 +48,7 @@ public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 
 	private void makeDateAnnotation(JCas jcas, String content,
 			Pattern datePattern, String questionType) {
-
+		logger.info("questionType : " + questionType);
 		Matcher matcher = datePattern.matcher(content);
 		int pos = 0;
 
@@ -54,9 +58,9 @@ public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 			questionAnnot.setBegin(matcher.start());
 
 			questionAnnot.setEnd(matcher.end());
-
+			logger.info("questionType : " + questionType);
 			addinVariables(matcher, questionType, questionAnnot);
-
+			logger.info("words : "+ questionAnnot.getRole()+ " & "+questionAnnot.getFilm());
 			questionAnnot.addToIndexes();
 			pos = matcher.end();
 		}
