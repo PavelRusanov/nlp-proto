@@ -65,14 +65,10 @@ public class MovieActorsQuestionParser implements
 					mva.setActor(new Actor(((QuestionAnnotation)annot).getActor()));
 					mva.setCharacter(new Character(((QuestionAnnotation)annot).getRole()));
 					mva.setMovie(new Movie(((QuestionAnnotation)annot).getFilm()));
-				//	mva.setType(MovieActorQuestionType.valueOf(((QuestionAnnotation)annot).getQuestionType()));
+					mva.setType(MovieActorQuestionType.valueOf(((QuestionAnnotation)annot).getQuestionType()));
 				 }
 				 iter.moveToNext();
 			}
-			logger.info(mva.getActor());
-			logger.info(mva.getCharacter());
-			logger.info(mva.getMovie());
-	//		logger.info(mva.getType());
 			cas.reset();
 			ae.destroy();
 

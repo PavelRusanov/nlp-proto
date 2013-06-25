@@ -54,7 +54,9 @@ public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 			questionAnnot.setBegin(matcher.start());
 
 			questionAnnot.setEnd(matcher.end());
-
+			
+			questionAnnot.setQuestionType(questionType);
+			
 			addinVariables(matcher, questionType, questionAnnot);
 
 			questionAnnot.addToIndexes();
