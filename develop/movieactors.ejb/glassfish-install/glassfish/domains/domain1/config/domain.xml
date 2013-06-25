@@ -48,7 +48,7 @@
     <jdbc-resource pool-name="movieactors_derby_pool" jndi-name="jdbc/movieactorsderby"/>
     <jdbc-connection-pool driver-classname="" datasource-classname="org.apache.derby.jdbc.ClientDataSource40" res-type="javax.sql.DataSource" description="" name="movieactors_derby_pool">
       <property name="User" value="dbadmin"></property>
-      <property name="DatabaseName" value="movieactorsdb_dev_test"></property>
+      <property name="DatabaseName" value="movieactorsdb_dev"></property>
       <property name="Password" value="dbadmin"></property>
       <property name="ServerName" value="localhost"></property>
       <property name="PortNumber" value="1527"></property>

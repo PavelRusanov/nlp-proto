@@ -7,7 +7,9 @@ import javax.faces.bean.ManagedBean;
 import org.apache.log4j.Logger;
 
 import ru.intrface.movieactors.ejb.QuestionAnsweringEJB;
+import ru.intrface.movieactors.model.question.MovieActorQuestionType;
 import ru.intrface.movieactors.model.question.MovieActorsQuestion;
+import ru.intrface.movieactors.question.QuestionAnswererException;
 
 @ManagedBean(name="questionAnswer")
 public class QuestionAnswerBean {
@@ -46,8 +48,19 @@ public class QuestionAnswerBean {
 	public void answerQuestion(){
 		logger.info("Answer the question : "+ questionText);
 	//	String answer = qaEJB.answerQuestion(qaEJB.parseQuestion(questionText,MovieActorsQuestion.class));
-		qaEJB.parseQuestion(questionText,MovieActorsQuestion.class);
-	//	questionAnswer = "Answer for question "+questionText + answer;
+		MovieActorsQuestion question =  qaEJB.parseQuestion(questionText,MovieActorsQuestion.class);
+		logger.info("question:"+question);
+		try {
+			question.setType(MovieActorQuestionType.ACTOR_AS_CHARACTER_IN_MOVIE);
+//			question.setMovie(new Movie("The Shawshank Redemption."));
+//			question.setCharacter(new Role("Andy Dufresne"));
+			logger.info("question2:"+question);
+			questionAnswer = qaEJB.answerQuestion(MovieActorsQuestion.class, question);
+		} catch (QuestionAnswererException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//	questionAnswer = "Answer for question "+questionText + answer;
 	}
 	
 

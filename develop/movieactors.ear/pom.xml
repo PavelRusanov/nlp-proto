@@ -64,6 +64,7 @@
 					<debug>true</debug>
 					<echo>false</echo>
 					<terse>true</terse>
+					<debug>true</debug>
 					<domain>
 						<name>mvactors_dev</name>
 						<adminPort>4848</adminPort>

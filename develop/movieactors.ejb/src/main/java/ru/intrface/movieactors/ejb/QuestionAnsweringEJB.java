@@ -1,6 +1,7 @@
 package ru.intrface.movieactors.ejb;
 
 import javax.ejb.Stateless;
+import javax.naming.NamingException;
 
 import org.apache.log4j.Logger;
 
@@ -10,6 +11,7 @@ import ru.intrface.movieactors.question.IQuestionAnswerer;
 import ru.intrface.movieactors.question.IQuestionParser;
 import ru.intrface.movieactors.question.MovieActorsQuestionAnswerer;
 import ru.intrface.movieactors.question.MovieActorsQuestionParser;
+import ru.intrface.movieactors.question.QuestionAnswererException;
 
 /**
  * Ejb для ответа на вопросы
@@ -38,8 +40,9 @@ public class QuestionAnsweringEJB {
 	 * @param <T> - тип отвечаемого вопроса
 	 * @param question - вопрос
 	 * @return
+	 * @throws QuestionAnswererException 
 	 */
-	public <T extends AbstractQuestion> String answerQuestion(Class<T> questionClass,T question){
+	public <T extends AbstractQuestion> String answerQuestion(Class<T> questionClass,T question) throws QuestionAnswererException{
 		IQuestionAnswerer<T> questionAnswerer = findProperlyAnswer(questionClass);
 		return questionAnswerer.answerQuestion(question);
 	}
@@ -53,13 +56,17 @@ public class QuestionAnsweringEJB {
 	@SuppressWarnings("unchecked")
 	private <T extends AbstractQuestion> IQuestionParser<T> findProperlyParser(Class<?> questionClass){
 		return ((IQuestionParser<T>) new MovieActorsQuestionParser());
-		//throw new UnsupportedOperationException();
 	}
 	
 	@SuppressWarnings("unchecked")
 	private <M extends AbstractQuestion> IQuestionAnswerer<M> findProperlyAnswer(Class<?> questionClass){
 		if(questionClass.equals(MovieActorsQuestion.class)){
-			return (IQuestionAnswerer<M>) new MovieActorsQuestionAnswerer();
+			try {
+				return (IQuestionAnswerer<M>) new MovieActorsQuestionAnswerer();
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return null;
 		

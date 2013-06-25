@@ -31,7 +31,7 @@ public class AnnotatorTest {
 			AnalysisEngine ae = UIMAFramework.produceAnalysisEngine(specifier);
 
 			CAS cas = ae.newCAS();
-			File document = new File("/home/user/git/nlp-proto/develop/movieactors.annotators/testData/shawshankRed.txt");
+			File document = new File("/home/user/git/nlp-proto/develop/movieactors.annotators/testData/ScaryMovie2.txt");
 			String text = FileUtils.file2String(document);
 			cas.setDocumentText(text);
 			

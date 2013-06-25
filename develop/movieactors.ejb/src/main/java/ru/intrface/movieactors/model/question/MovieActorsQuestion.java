@@ -2,7 +2,7 @@ package ru.intrface.movieactors.model.question;
 
 import ru.intrface.movieactors.model.Actor;
 import ru.intrface.movieactors.model.Movie;
-import ru.intrface.movieactors.model.Character;
+import ru.intrface.movieactors.model.Role;
 
 /**
  * 
@@ -14,8 +14,16 @@ public class MovieActorsQuestion extends AbstractQuestion{
 	private MovieActorQuestionType type;
 	private Movie movie;
 	private Actor actor;
-	private Character character;
+	private Role character;
 	
+	@Override
+	public String toString() {
+		return "MovieActorsQuestion [type=" + type + 
+				(movie!=null? ", movie=" + movie.getName() :"") +
+				(actor!=null? ", actor=" + actor.getName() :"") +
+				(character!=null? ", character=" + character.getName() :"")+
+				 "]";
+	}
 	public MovieActorQuestionType getType() {
 		return type;
 	}
@@ -34,10 +42,10 @@ public class MovieActorsQuestion extends AbstractQuestion{
 	public void setActor(Actor actor) {
 		this.actor = actor;
 	}
-	public Character getCharacter() {
+	public Role getCharacter() {
 		return character;
 	}
-	public void setCharacter(Character character) {
+	public void setCharacter(Role character) {
 		this.character = character;
 	}
 	

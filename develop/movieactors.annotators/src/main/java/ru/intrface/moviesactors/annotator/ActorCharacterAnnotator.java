@@ -95,6 +95,23 @@ public class ActorCharacterAnnotator extends JCasAnnotator_ImplBase {
 
 			//находим имена в предложение через OpenNlp
 			List<Span> names =  Arrays.asList(mNameFinder.find(tokens));
+			for(Span name : names){
+				String nameText = getEntityFullText(name.getStart(), 
+						name.getEnd(), tokSpans, sentence);
+				String newLine = System.getProperty("line.separator");
+				if(nameText.contains(newLine)){
+//					int index = 0;
+					int index = nameText.indexOf(newLine);
+					System.out.println("initial index: "+index);
+					while(index>0){
+						index = nameText.indexOf(newLine, index+1);
+						System.out.println("index: "+index);
+					}
+
+				}
+//				Span newSpan = new 
+				System.out.println("name: "+nameText);
+			}
 			Iterator<Span> namesSpanIt = names.iterator();
 			
 			int i = 0;
@@ -103,7 +120,7 @@ public class ActorCharacterAnnotator extends JCasAnnotator_ImplBase {
 				i++;
 				
 				Span name = namesSpanIt.next();
-				if(tokens[name.getEnd()].toLowerCase().equals("as")&& 
+				if(tokens.length>name.getEnd() && tokens[name.getEnd()].toLowerCase().equals("as")&& 
 						namesSpanIt.hasNext()){
 					//берем следующее найденной имя и проверяем идет ли оно за союзом as
 					Span nextName = names.get(i);
@@ -158,6 +175,16 @@ public class ActorCharacterAnnotator extends JCasAnnotator_ImplBase {
 		
 		return sb.substring(0, sb.length()-1);
 	}
+	
+	private String getEntityFullText(int startSpan,int endSpan,
+			Span[] tokSpans, String sentence){
+		String text="";
+		int begin = tokSpans[startSpan].getStart();
+		int end = tokSpans[endSpan-1].getEnd();
+		text = sentence.substring(begin, end);
+		return text;
+	}
+	
 	
 
 //	private <T extends Person> T createPersonAnnotation(

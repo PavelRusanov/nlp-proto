@@ -583,3 +583,190 @@
 19:29:05,700  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
 19:29:05,762  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [151 ]
 19:29:05,777  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+14:44:38,064  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+14:44:38,076  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+14:45:01,651  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+14:45:03,378  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+14:45:03,379  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+14:45:03,397  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+14:45:03,477  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [201 ]
+14:45:03,492  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+14:55:27,762  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+14:55:27,773  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+14:55:32,670  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+14:55:34,099  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+14:55:34,100  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+14:55:34,102  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+14:55:34,164  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [251 ]
+14:55:34,179  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+15:22:01,029  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+15:22:01,041  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+15:22:07,572  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+15:22:09,068  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+15:22:09,068  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+15:22:09,071  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+15:22:09,133  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [301 ]
+15:22:09,148  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+15:34:15,127  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+15:34:15,139  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+15:34:20,989  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+15:34:22,634  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+15:34:22,634  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+15:34:22,636  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+15:34:22,699  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [351 ]
+15:34:22,713  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+15:44:10,078  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+15:44:10,089  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+15:44:16,370  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+15:44:18,239  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+15:44:18,239  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+15:44:18,242  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+15:44:18,303  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [401 ]
+15:44:18,317  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+17:36:40,927  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+17:36:40,939  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+17:37:03,234  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+17:37:06,001  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+17:37:06,001  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+17:37:06,004  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+17:37:06,093  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [1 ]
+17:37:06,116  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+17:53:35,877  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+17:53:35,889  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+17:53:42,277  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+17:53:44,187  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+17:53:44,187  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+17:53:44,190  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+17:53:44,259  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [51 ]
+17:53:44,274  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+18:18:25,468  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+18:18:25,480  INFO main DataManagerEJBTest:setUp:26 - creating EJB container
+18:18:32,221  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+18:18:34,888  INFO main DataManagerEJBTest:setUp:31 - EJB container has been created
+18:18:34,888  INFO main DataManagerEJBTest:testSave:39 - Test saving entities in DB
+18:18:34,890  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+18:18:34,976  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [101 ]
+18:18:34,999  INFO main DataManagerEJBTest:tearDown:53 - Shutdown EJB container
+20:00:11,374  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:00:18,683  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:00:20,261  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:00:20,262  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:00:20,264  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:00:20,319  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [151 ]
+20:00:20,342  INFO main DataManagerEJBTest:tearDown:87 - Shutdown EJB container
+20:00:20,366  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:00:23,866  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:00:25,310  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:00:25,310  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:00:25,417  INFO main DataManagerEJBTest:tearDown:87 - Shutdown EJB container
+20:01:51,346  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:01:56,463  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:01:58,072  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:02:04,430  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:02:04,434  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:02:04,540  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [51 ]
+20:02:04,562  INFO main DataManagerEJBTest:tearDown:87 - Shutdown EJB container
+20:02:04,587  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:02:08,079  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:02:09,514  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:02:13,265  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:02:44,213  INFO main DataManagerEJBTest:tearDown:87 - Shutdown EJB container
+20:03:46,635  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:03:51,545  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:03:53,296  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:03:53,296  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:03:53,299  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:03:53,353  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [101 ]
+20:03:53,376  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:03:53,400  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:03:56,563  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:03:57,986  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:03:57,987  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:03:58,102  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:04:42,614  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:04:47,381  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:04:49,196  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:04:49,196  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:04:49,199  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:04:49,260  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [151 ]
+20:04:49,275  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:04:49,299  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:04:52,352  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:04:53,835  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:04:53,836  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:05:13,700  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:05:28,982  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:05:34,135  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:05:35,718  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:05:35,719  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:05:35,721  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:05:35,775  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [201 ]
+20:05:35,789  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:05:35,814  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:05:39,061  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:05:40,540  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:05:40,541  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:05:40,653  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:06:08,270  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:06:13,833  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:06:15,481  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:06:15,482  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:06:15,484  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:06:15,546  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [251 ]
+20:06:15,560  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:06:15,585  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:06:18,505  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:06:19,912  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:06:19,913  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:06:20,048  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:06:41,231  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:06:46,380  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:06:48,011  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:06:48,012  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:06:48,014  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:06:48,074  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [301 ]
+20:06:48,088  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:06:48,114  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:06:51,162  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:06:52,656  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:06:52,658  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:07:04,948  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:12:02,189  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+20:12:02,202  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:12:07,050  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:12:08,723  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:12:08,723  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+20:12:08,726  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:12:08,788  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [351 ]
+20:12:08,802  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+20:12:08,828  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+20:12:11,741  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:12:13,079  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+20:12:13,080  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+20:12:13,207  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+13:31:35,487  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+13:31:35,499  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+13:31:58,992  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:32:00,721  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+13:32:00,722  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+13:32:00,724  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:32:00,786  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [451 ]
+13:32:00,800  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+13:32:00,826  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+13:32:04,644  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:32:06,151  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+13:32:06,152  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:32:06,291  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+13:47:28,334  INFO main DataManagerEJBTest:tearDown:33 - Shutdown EJB container
+13:47:28,348  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+13:47:34,953  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:47:36,587  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+13:47:36,587  INFO main DataManagerEJBTest:testSave:44 - Test saving entities in DB
+13:47:36,590  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:47:36,652  INFO main DataManagerEJB:delete:98 - Get object of class [ class ru.intrface.movieactors.model.Actor ] with id [501 ]
+13:47:36,667  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container
+13:47:36,693  INFO main DataManagerEJBTest:setUp:31 - creating EJB container
+13:47:39,398  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:47:40,802  INFO main DataManagerEJBTest:setUp:36 - EJB container has been created
+13:47:40,803  INFO main DataManagerEJB:<init>:31 - DataManager ejb created
+13:47:40,923  INFO main DataManagerEJBTest:tearDown:88 - Shutdown EJB container

@@ -15,8 +15,8 @@ import ru.intrface.movieactors.ejb.DataManagerEJB;
 import ru.intrface.movieactors.ejb.exception.DataManagerException;
 import ru.intrface.movieactors.model.Actor;
 import ru.intrface.movieactors.model.Actor2Character;
-import ru.intrface.movieactors.model.Character;
 import ru.intrface.movieactors.model.Movie;
+import ru.intrface.movieactors.model.Role;
 
 import ru.intrface.moviesactors.util.AEExecuteHelper;
 import ru.intrface.moviesactors.util.IAeExecuteHelper;
@@ -58,12 +58,12 @@ public class BasicAEExecuteHelper  extends AEExecuteHelper implements IAeExecute
 				Actor actor = new Actor();
 				actor.setName(actor2CharAnnot.getActor().getName());
 				
-				Character character = new Character();
+				Role character = new Role();
 				character.setName(actor2CharAnnot.getCharacter().getName());
 				
 				Actor2Character actor2Char = new Actor2Character();
 				actor2Char.setActor(actor);
-				actor2Char.setCharacter(character);
+				actor2Char.setRole(character);
 				
 				actorsCharacters.add(actor2Char);
 			}

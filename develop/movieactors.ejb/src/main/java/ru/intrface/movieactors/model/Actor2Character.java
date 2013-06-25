@@ -22,18 +22,18 @@ public class Actor2Character extends SystemObject {
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
 	@JoinColumn(name = "fk_character")
-	private Character character;
+	private Role role;
 	public Actor getActor() {
 		return actor;
 	}
 	public void setActor(Actor actor) {
 		this.actor = actor;
 	}
-	public Character getCharacter() {
-		return character;
+	public Role getRole() {
+		return role;
 	}
-	public void setCharacter(Character character) {
-		this.character = character;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 }
