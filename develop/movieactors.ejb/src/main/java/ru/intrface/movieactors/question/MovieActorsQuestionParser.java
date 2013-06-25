@@ -15,7 +15,7 @@ import org.apache.uima.util.InvalidXMLException;
 import org.apache.uima.util.XMLInputSource;
 
 import ru.intrface.movieactors.model.Actor;
-import ru.intrface.movieactors.model.Character;
+import ru.intrface.movieactors.model.Role;
 import ru.intrface.movieactors.model.Movie;
 import ru.intrface.movieactors.model.question.MovieActorQuestionType;
 import ru.intrface.movieactors.model.question.MovieActorsQuestion;
@@ -47,7 +47,7 @@ public class MovieActorsQuestionParser implements
 		
 		try {
 			in = new XMLInputSource(
-					"file:C:/LacmusDev/git/nlp-proto/develop/movieactors.annotators/desc/QuestionDescriptor.xml");
+					"file:///home/user/git/nlp-proto/develop/movieactors.annotators/desc/QuestionDescriptor.xml");
 			ResourceSpecifier specifier = UIMAFramework.getXMLParser()
 					.parseResourceSpecifier(in);
 		
@@ -62,9 +62,12 @@ public class MovieActorsQuestionParser implements
 			while(iter.isValid()){
 				AnnotationFS annot = (AnnotationFS)iter.get();
 				 if(annot.getClass().equals(ru.intrface.moviesactors.QuestionAnnotation.class)){
+					 
 					mva.setActor(new Actor(((QuestionAnnotation)annot).getActor()));
-					mva.setCharacter(new Character(((QuestionAnnotation)annot).getRole()));
+					mva.setCharacter(new Role(((QuestionAnnotation)annot).getRole()));
 					mva.setMovie(new Movie(((QuestionAnnotation)annot).getFilm()));
+					logger.info("Film"+((QuestionAnnotation)annot).getFilm());
+					logger.info("Char"+((QuestionAnnotation)annot).getRole());
 				//	mva.setType(MovieActorQuestionType.valueOf(((QuestionAnnotation)annot).getQuestionType()));
 				 }
 				 iter.moveToNext();
@@ -89,7 +92,7 @@ public class MovieActorsQuestionParser implements
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return mva;
 	}
 
 	
