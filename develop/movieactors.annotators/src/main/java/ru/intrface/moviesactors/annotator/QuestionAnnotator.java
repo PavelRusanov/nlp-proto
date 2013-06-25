@@ -12,15 +12,15 @@ import ru.intrface.moviesactors.QuestionAnnotation;
 public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 
 	static final Pattern whoQuestionPattern = Pattern
-			.compile("(Who) (played|performed) (\\w+) in the (film|movie|motion picture) (\\w+)*");
+			.compile("(Who) (played|performed) (((\\w+)\\b\\s*)*) in the (film|movie|motion picture) (((\\w+)\\b\\s*)*)");
 	static final Pattern whereQuestionPattern = Pattern
-			.compile("(Where) did (\\w+)* (played|performed) (role|part) of (\\w+)*");
+			.compile("(Where) did (((\\w+)\\b\\s*)*) (played|performed) (role|part) of (((\\w+)\\b\\s*)*) ?");
 	static final Pattern where2QuestionPattern = Pattern
-			.compile("(Where) did (\\w+)* (took part) of (\\w+)*");
+			.compile("(Where) did (((\\w+)\\b\\s*)*) (took part) of (((\\w+)\\b\\s*)*) ?");
 	static final Pattern whatQuestionPattern = Pattern
-			.compile("In what (films|movies|motion pictures) has (\\w+)* (played|acted|performed)*");
+			.compile("In what (films|movies|motion pictures) has (((\\w+)\\b\\s*)*) (played|acted|performed)* ?");
 	static final Pattern what2QuestionPattern = Pattern
-			.compile("What actors (played|performed|appeared) in the (movie|film|motion picture) (\\w+)*");
+			.compile("What actors (played|performed|appeared) in the (movie|film|motion picture) (((\\w+)\\b\\s*)*) ?");
 
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
@@ -67,20 +67,22 @@ public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 		switch (questionType) {
 		case "ACTOR_AS_CHARACTER_IN_MOVIE":
 			questionAnnot.setRole(matcher.group(3));
-			questionAnnot.setFilm(matcher.group(5));
+			questionAnnot.setFilm(matcher.group(7));
 			break;
 		case "MOVIE_WHERE_ACTOR_PLAYS_ROLE":
-			if (matcher.group(3).equals("took part"))
-				questionAnnot.setRole(matcher.group(4));
+			if (matcher.group(5).equals("took part"))
+				questionAnnot.setRole(matcher.group(6));
 			else
-				questionAnnot.setRole(matcher.group(5));
+				questionAnnot.setRole(matcher.group(7));
 			questionAnnot.setActor(matcher.group(2));
 			break;
 		case "ACTOR_MOVIES_LIST":
 			questionAnnot.setActor(matcher.group(2));
+			System.out.println(matcher.group(2));
 			break;
 		case "MOVIE_ACTORS_LIST":
 			questionAnnot.setFilm(matcher.group(3));
+			System.out.println(matcher.group(3));
 			break;
 		default:
 			break;
