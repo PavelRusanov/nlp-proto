@@ -4,9 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 import opennlp.tools.namefind.NameFinderME;
 import opennlp.tools.namefind.TokenNameFinderModel;
@@ -95,24 +101,58 @@ public class ActorCharacterAnnotator extends JCasAnnotator_ImplBase {
 
 			//находим имена в предложение через OpenNlp
 			List<Span> names =  Arrays.asList(mNameFinder.find(tokens));
+			List<Span> testNames = new LinkedList<Span>();
+			testNames.addAll(names);
+			
+			int nameSpanIndex = 0;
+			
+			NavigableMap<Integer,List<Span>> newNamesMap= new TreeMap<Integer,List<Span>>();
 			for(Span name : names){
 				String nameText = getEntityFullText(name.getStart(), 
 						name.getEnd(), tokSpans, sentence);
 				String newLine = System.getProperty("line.separator");
-				if(nameText.contains(newLine)){
-//					int index = 0;
-					int index = nameText.indexOf(newLine);
-					System.out.println("initial index: "+index);
-					while(index>0){
-						index = nameText.indexOf(newLine, index+1);
-						System.out.println("index: "+index);
-					}
 
+				if(nameText.contains(newLine)){
+//					System.out.println("name: "+nameText);
+//					System.out.println("name span: "+name);
+					int index = 0;
+					int prevIndex = 0;
+					int begin=0;
+					int end = 0;
+					List<Span> newNameSpans = new ArrayList<Span>();
+					while(index>-1){
+						index = nameText.indexOf(newLine, index+1);
+//						String person = "";
+						if(index != -1&& index-prevIndex>1){
+								begin = prevIndex;
+								end = index;
+						}else if(index==-1){
+							begin = prevIndex;
+							end = nameText.length();
+						}
+						Span newNameSpan = createSpanFromIndexies(begin,end, tokSpans,name.getStart(),name.getEnd());
+						newNameSpans.add(newNameSpan);
+						
+//						String newNameText = getEntityFullText(newNameSpan.getStart(), 
+//								newNameSpan.getEnd(), tokSpans, sentence);
+						
+//						System.out.println("span "+newNameSpan+" text '"+newNameText+"'");
+
+						prevIndex = index;
+
+					}
+					newNamesMap.put(nameSpanIndex, newNameSpans);
+					
 				}
-//				Span newSpan = new 
-				System.out.println("name: "+nameText);
+				nameSpanIndex++;
 			}
-			Iterator<Span> namesSpanIt = names.iterator();
+			
+			for (Map.Entry<Integer, List<Span>> e : newNamesMap.descendingMap().entrySet()) {
+				int removeIndex = e.getKey();
+				testNames.remove(removeIndex);
+				testNames.addAll(e.getKey(), e.getValue());
+			}
+			Iterator<Span> namesSpanIt = testNames.iterator();
 			
 			int i = 0;
 			
@@ -123,7 +163,7 @@ public class ActorCharacterAnnotator extends JCasAnnotator_ImplBase {
 				if(tokens.length>name.getEnd() && tokens[name.getEnd()].toLowerCase().equals("as")&& 
 						namesSpanIt.hasNext()){
 					//берем следующее найденной имя и проверяем идет ли оно за союзом as
-					Span nextName = names.get(i);
+					Span nextName = testNames.get(i);
 					
 					if(nextName.getStart()==(name.getEnd()+1)){
 						//создаем аннотацию для актера
@@ -183,6 +223,60 @@ public class ActorCharacterAnnotator extends JCasAnnotator_ImplBase {
 		int end = tokSpans[endSpan-1].getEnd();
 		text = sentence.substring(begin, end);
 		return text;
+	}
+	
+	/**
+	 * Востанавливаем Span из координат имени в предложение
+	 * @param start - символ
+	 * @param end - окончания
+	 * @param tokSpans
+	 * @param offset - на сколько координаты отстают от начала предложения (в токенах)
+	 * @param endOffset -
+	 * @return
+	 */
+	private Span createSpanFromIndexies(int start,int end,
+			Span[] tokSpans, int offset, int endOffset){
+
+		if(start != 0)
+			start++;
+		
+		int startSpan = -1;
+		int endSpan=-1;
+		start += tokSpans[offset].getStart();
+		end += tokSpans[offset].getStart();
+		
+		int i = 8;
+		Span sp = null;
+		Span nextSp = null;
+		Span prevSp = null;
+		for(i= offset;i<endOffset;i++){
+			sp = tokSpans[i];
+			if(tokSpans.length-1>i)
+				nextSp=tokSpans[i+1];
+			if(i>0)
+				prevSp=tokSpans[i-1];
+			else
+				nextSp=null;
+			
+			if(start >= sp.getStart() && start<sp.getEnd()){
+				startSpan=i;
+//				continue;
+			}
+			if(end >= sp.getStart() && end<=sp.getEnd()){
+				endSpan=i+1;
+				return new Span(startSpan, endSpan,"person");
+			}
+			if(start >sp.getEnd() && start<nextSp.getStart()){
+				startSpan=i+1;
+				continue;
+			}
+			if(end <sp.getStart() && end>prevSp.getEnd()){
+				endSpan=i;
+				return new Span(startSpan, endSpan,"person");
+			}
+		}
+		return null;
+
 	}
 	
 	
